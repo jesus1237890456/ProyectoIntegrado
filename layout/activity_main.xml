@@ -7,6 +7,7 @@
     tools:context=".MainActivity">
 
     <TextView
+
         android:id="@+id/titulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -19,10 +20,9 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.095" />
 
-    <EditText
-        android:id="@+id/usuario"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="201dp"
+        android:layout_height="52dp"
         android:ems="10"
         android:hint="usuario"
         android:inputType="textPersonName"
@@ -32,22 +32,35 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.265" />
+        app:layout_constraintVertical_bias="0.265">
 
-    <EditText
-        android:id="@+id/contraseña"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/usuario"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="209dp"
+        android:layout_height="54dp"
         android:ems="10"
         android:hint="Contraseña"
-        android:inputType="textPassword"
         android:minHeight="48dp"
+        app:endIconMode="password_toggle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.395" />
+        app:layout_constraintVertical_bias="0.395">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/contraseña"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <CheckBox
         android:id="@+id/recordar"
@@ -91,4 +104,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.705" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

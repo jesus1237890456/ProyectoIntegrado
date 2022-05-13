@@ -6,10 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity_insert_edit">
 
-    <EditText
-        android:id="@+id/salario"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="218dp"
+        android:layout_height="55dp"
         android:ems="10"
         android:hint="Salario Bruto"
         android:inputType="textPersonName"
@@ -18,12 +17,18 @@
         app:layout_constraintHorizontal_bias="0.432"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.093" />
+        app:layout_constraintVertical_bias="0.093">
 
-    <EditText
-        android:id="@+id/seguridad"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/salario"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="215dp"
+        android:layout_height="53dp"
         android:ems="10"
         android:hint="Seguridad social"
         android:inputType="textPersonName"
@@ -32,12 +37,18 @@
         app:layout_constraintHorizontal_bias="0.432"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.205" />
+        app:layout_constraintVertical_bias="0.205">
 
-    <EditText
-        android:id="@+id/retenciones"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/seguridad"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="218dp"
+        android:layout_height="54dp"
         android:ems="10"
         android:hint="Retenciones"
         android:inputType="textPersonName"
@@ -46,7 +57,14 @@
         app:layout_constraintHorizontal_bias="0.432"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.326" />
+        app:layout_constraintVertical_bias="0.326">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/retenciones"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/guardar_datos"

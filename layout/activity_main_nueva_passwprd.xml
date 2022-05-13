@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity_nueva_passwprd">
+    tools:context=".MainActivity_nueva_password">
 
     <Button
         android:id="@+id/actualizar"
@@ -17,10 +17,9 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.569" />
 
-    <EditText
-        android:id="@+id/contraseñanueva"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="200dp"
+        android:layout_height="58dp"
         android:ems="10"
         android:hint="Contraseña"
         android:inputType="textPassword"
@@ -29,12 +28,18 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.15" />
+        app:layout_constraintVertical_bias="0.15">
 
-    <EditText
-        android:id="@+id/contraseñarepit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/contraseñanueva"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="202dp"
+        android:layout_height="53dp"
         android:ems="10"
         android:hint="Repite contraseña"
         android:inputType="textPassword"
@@ -43,5 +48,13 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.297" />
+        app:layout_constraintVertical_bias="0.297">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/contraseñarepit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

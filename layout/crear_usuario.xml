@@ -6,24 +6,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/mail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="201dp"
+        android:layout_height="54dp"
         android:ems="10"
         android:hint="Email"
-        android:inputType="textEmailAddress"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.422" />
+        app:layout_constraintVertical_bias="0.422">
 
-    <EditText
-        android:id="@+id/contraseña_crear"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/mail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textEmailAddress" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="199dp"
+        android:layout_height="57dp"
         android:ems="10"
         android:hint="Contraseña"
         android:inputType="textPassword"
@@ -32,20 +36,34 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.314" />
+        app:layout_constraintVertical_bias="0.314">
 
-    <EditText
-        android:id="@+id/usuario_crear"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/contraseña_crear"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="201dp"
+        android:layout_height="58dp"
         android:ems="10"
+        android:hint="Usuario"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.198" />
+        app:layout_constraintVertical_bias="0.198">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/usuario_crear"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/crear_sesion"
