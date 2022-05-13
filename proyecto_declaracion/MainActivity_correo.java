@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputEditText;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -29,8 +31,8 @@ import javax.mail.internet.MimeMessage;
 
 
 public class MainActivity_correo extends AppCompatActivity {
-    private EditText usuario;
-    private EditText email;
+    private TextInputEditText usuario;
+    private TextInputEditText email;
     private Button enviar;
     private Statement St;
     public static final String ENVIAR_mensaje ="mensaje";
@@ -45,10 +47,11 @@ public class MainActivity_correo extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_correo);
-        usuario = (EditText) findViewById(R.id.usuario_correo);
-        email = (EditText) findViewById(R.id.email_correo);
+        usuario = (TextInputEditText) findViewById(R.id.usuario_correo);
+        email = (TextInputEditText) findViewById(R.id.email_correo);
         enviar = (Button) findViewById(R.id.enviar);
         MainActivity main = new MainActivity();
+
         enviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -63,7 +66,6 @@ public class MainActivity_correo extends AppCompatActivity {
                     if (rs.next()) {
                         do {
                             Random random = new Random();
-
                             String setOfCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-/@";
                             for (int x = 0; x < 6; x++) {
                                 int indiceAleatorio = random.nextInt(setOfCharacters.length() - 1);
@@ -78,11 +80,8 @@ public class MainActivity_correo extends AppCompatActivity {
                             propiedad.setProperty("mail.smtp.auth", "true");
                             propiedad.put("mail.smtp.ssl.trust", "smtp.gmail.com");
 
-
-
                             correoemisor = "jesuscuetogonzalez14@gmail.com";
                             contraseña = "pokemons12";
-
 
                             try {
                                     sesion = Session.getDefaultInstance(propiedad, new Authenticator() {
@@ -103,23 +102,10 @@ public class MainActivity_correo extends AppCompatActivity {
                                 e.printStackTrace();
                             }
 
-                           /*     Transport transporte = sesion.getTransport("smtp");
-                                transporte.connect(correoemisor, contraseña);
-                                transporte.sendMessage(email, email.getRecipients(Message.RecipientType.TO));
-                                transporte.close();
-                            } catch (
-                                    AddressException e) {
-                                // TODO Auto-generated catch block
-                                e.printStackTrace();
-                            } catch (MessagingException e) {
-                                // TODO Auto-generated catch block
-                                e.printStackTrace();
-                            }*/
                             Intent siguiente = new Intent(MainActivity_correo.this, MainActivity_codigo.class);
                             siguiente.putExtra(ENVIAR_mensaje, cadena);
                             siguiente.putExtra(ENVIAR_correo, email.getText().toString());
                             startActivity(siguiente);
-
 
                         } while (rs.next());
 

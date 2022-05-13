@@ -25,7 +25,6 @@ public class MainActivity_datos extends AppCompatActivity {
     public static final String ENVIAR_password ="contraseña";
     public String recu_usuario;
     public String recu_contraseña;
-    public int id_cliente;
     int salario_bruto ;
     int social;
     int reten;
@@ -62,20 +61,23 @@ public class MainActivity_datos extends AppCompatActivity {
 
                 } while(rs.next());
             } else {
+                declaracion.setVisibility(View.INVISIBLE);
                 edit.setVisibility(View.INVISIBLE);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-insert.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View view) {
-        Intent siguiente = new Intent(MainActivity_datos.this, MainActivity_insert_edit.class);
-        siguiente.putExtra(ENVIAR_user, recu_usuario);
-        siguiente.putExtra(ENVIAR_password, recu_contraseña);
-        startActivity(siguiente);
-    }
-});
+
+    insert.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Intent siguiente = new Intent(MainActivity_datos.this, MainActivity_insert_edit.class);
+            siguiente.putExtra(ENVIAR_user, recu_usuario);
+            siguiente.putExtra(ENVIAR_password, recu_contraseña);
+            startActivity(siguiente);
+        }
+    });
+
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -85,6 +87,7 @@ insert.setOnClickListener(new View.OnClickListener() {
                 startActivity(siguiente);
             }
         });
+
         declaracion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

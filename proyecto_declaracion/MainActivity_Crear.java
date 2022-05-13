@@ -9,15 +9,17 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.textfield.TextInputEditText;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class MainActivity_Crear extends AppCompatActivity {
     Button btn_crear;
-    private EditText usuario;
-    private EditText contraseña;
-    private EditText email;
+    private TextInputEditText usuario;
+    private TextInputEditText contraseña;
+    private TextInputEditText email;
     private Connection conexion;
     private Statement St1;
     private Statement St2;
@@ -26,9 +28,9 @@ public class MainActivity_Crear extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.crear_usuario);
-        usuario=(EditText) findViewById(R.id.usuario_crear);
-        contraseña=(EditText) findViewById(R.id.contraseña_crear);
-        email=(EditText) findViewById(R.id.mail);
+        usuario=(TextInputEditText) findViewById(R.id.usuario_crear);
+        contraseña=(TextInputEditText) findViewById(R.id.contraseña_crear);
+        email=(TextInputEditText) findViewById(R.id.mail);
         btn_crear = (Button) findViewById(R.id.crear_sesion);
 
         btn_crear.setOnClickListener(new View.OnClickListener() {

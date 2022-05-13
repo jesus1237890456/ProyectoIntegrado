@@ -9,9 +9,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputEditText;
+
 public class MainActivity_codigo extends AppCompatActivity {
 private String recu_codigo;
-private EditText codigo;
+private TextInputEditText codigo;
 private Button aceptar;
 private String recu_correo;
 public static final String ENVIAR_correo ="correo";
@@ -19,11 +21,12 @@ public static final String ENVIAR_correo ="correo";
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_codigo);
-        codigo = (EditText) findViewById(R.id.codigo);
+        codigo = (TextInputEditText) findViewById(R.id.codigo);
         aceptar = (Button) findViewById(R.id.codigo_enviar);
         Bundle datos = this.getIntent().getExtras();
         recu_codigo = getIntent().getStringExtra(MainActivity_correo.ENVIAR_mensaje);
         recu_correo = getIntent().getStringExtra(MainActivity_correo.ENVIAR_correo);
+
     aceptar.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {

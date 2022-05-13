@@ -12,14 +12,16 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.google.android.material.textfield.TextInputEditText;
+
 import java.sql.*;
 
 public class MainActivity extends AppCompatActivity {
     Button btnLogin;
-    SharedPreferences preferences;
     SharedPreferences.Editor editor;
     public EditText usuario;
-    public EditText contraseña;
+    public TextInputEditText contraseña;
     private CheckBox chekRecordardatos;
     private Connection conexion = null;
     private Statement St;
@@ -29,22 +31,25 @@ public class MainActivity extends AppCompatActivity {
     public static final String ENVIAR_usuario ="nombre";
     public static final String ENVIAR_contraseña = "contraseña";
     private SharedPreferences prefe;
-    private SharedPreferences prefe2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        setTheme(R.style.Theme_Proyecto_declaracion);
         setContentView(R.layout.activity_main);
         usuario = (EditText) findViewById(R.id.usuario);
-        contraseña = (EditText) findViewById(R.id.contraseña);
+        contraseña = (TextInputEditText) findViewById(R.id.contraseña);
         btnLogin = (Button) findViewById(R.id.logear);
         btncrear = (Button) findViewById(R.id.create);
         btnolvide = (Button) findViewById(R.id.olvide);
         chekRecordardatos = (CheckBox) findViewById(R.id.recordar);
         SharedPreferences preferencias = getSharedPreferences("usuario", Context.MODE_PRIVATE);
         usuario.setText(preferencias.getString("usuario", ""));
-        SharedPreferences preferencias2 = getSharedPreferences("contraseña", Context.MODE_PRIVATE);
-        contraseña.setText(preferencias2.getString("contraseña", ""));
-        if(preferencias.getString("usuario", "").isEmpty() && preferencias2.getString("contraseña", "").isEmpty()){
+        if(preferencias.getString("usuario", "").isEmpty()){
             chekRecordardatos.setChecked(false);
         }else{
             chekRecordardatos.setChecked(true);
@@ -59,13 +64,10 @@ public class MainActivity extends AppCompatActivity {
                         , Toast.LENGTH_SHORT);
                 toast.show();
             }else{
-
-
                 connect();
                 try {
                     String consulta;
                     consulta = "SELECT usuario , contraseña FROM cliente WHERE usuario LIKE '" + usuario.getText().toString() + "' and contraseña LIKE '" + contraseña.getText().toString() + "'";
-
                     St = conexion.createStatement();
                     rs = St.executeQuery(consulta);
                     if(rs.next()) {
@@ -94,17 +96,12 @@ public class MainActivity extends AppCompatActivity {
                             , Toast.LENGTH_SHORT);
                     toast.show();
                     prefe = getSharedPreferences("usuario", Context.MODE_PRIVATE);
-                    prefe2 = getSharedPreferences("contraseña", Context.MODE_PRIVATE);
                     editor = prefe.edit();
                     editor.putString("usuario", usuario.getText().toString());
                     editor.commit();
-                    editor = prefe2.edit();
-                    editor.putString("contraseña", contraseña.getText().toString());
-                    editor.commit();
                 }else{
-                    if(preferencias.getString("usuario", "") != null && preferencias2.getString("contraseña", "") != null) {
+                    if(preferencias.getString("usuario", "") != null) {
                         preferencias.edit().clear().commit();
-                        preferencias2.edit().clear().commit();
                     }else{
                     }
                     }
@@ -112,6 +109,7 @@ public class MainActivity extends AppCompatActivity {
             }
             }
         });
+
         btncrear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -120,6 +118,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
         btnolvide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.android.material.textfield.TextInputEditText;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,9 +20,9 @@ public class MainActivity_insert_edit extends AppCompatActivity {
     private ResultSet rs;
     private ResultSet rs2;
     private Connection conexion = null;
-    private EditText salario;
-    private EditText seguridad;
-    private EditText retenciones;
+    private TextInputEditText salario;
+    private TextInputEditText seguridad;
+    private TextInputEditText retenciones;
     private Button guardar;
     private int id_cliente;
     private Button cancelar;
@@ -28,9 +30,9 @@ public class MainActivity_insert_edit extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_insert_edit);
-        salario = (EditText) findViewById(R.id.salario);
-        seguridad = (EditText) findViewById(R.id.seguridad);
-        retenciones = (EditText) findViewById(R.id.retenciones);
+        salario = (TextInputEditText) findViewById(R.id.salario);
+        seguridad = (TextInputEditText) findViewById(R.id.seguridad);
+        retenciones = (TextInputEditText) findViewById(R.id.retenciones);
         guardar = (Button) findViewById(R.id.guardar_datos);
         cancelar = (Button) findViewById(R.id.cancelar);
         Bundle datos = this.getIntent().getExtras();
@@ -71,6 +73,7 @@ public class MainActivity_insert_edit extends AppCompatActivity {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+
         guardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -95,7 +98,7 @@ public class MainActivity_insert_edit extends AppCompatActivity {
                 startActivity(siguiente);
         }
 
-});
+        });
         cancelar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

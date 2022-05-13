@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputEditText;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -16,8 +18,8 @@ import java.sql.Statement;
 public class MainActivity_nueva_password extends AppCompatActivity {
     private Statement St1;
     private ResultSet rs;
-    private EditText pass;
-    private EditText passrepit;
+    private TextInputEditText pass;
+    private TextInputEditText passrepit;
     private Button btn_actualizar;
     private Connection conexion;
     private String recu_correo;
@@ -25,12 +27,13 @@ public class MainActivity_nueva_password extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_nueva_passwprd);
-        pass=(EditText) findViewById(R.id.contraseñanueva);
-        passrepit=(EditText) findViewById(R.id.contraseñarepit);
+        pass=(TextInputEditText) findViewById(R.id.contraseñanueva);
+        passrepit=(TextInputEditText) findViewById(R.id.contraseñarepit);
         btn_actualizar = (Button) findViewById(R.id.actualizar);
         Bundle datos = this.getIntent().getExtras();
         recu_correo = getIntent().getStringExtra(MainActivity_codigo.ENVIAR_correo);
         MainActivity main = new MainActivity();
+
         btn_actualizar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
